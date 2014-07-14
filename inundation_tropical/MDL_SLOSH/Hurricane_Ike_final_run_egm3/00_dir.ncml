@@ -1,0 +1,22 @@
+<netcdf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2 http://www.unidata.ucar.edu/schemas/thredds/InvCatalog.1.0.3.xsd"
+ xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
+
+	<attribute name="Conventions" value="CF-1.0"/>
+	<attribute name="Source" value="SLOSH" />
+
+	<attribute name="id" value="in.mdl.slosh.ike.egm3.slosh_wind.nowave.2d" />
+	<attribute name="cdm_data_type" value="grid" />
+	<attribute name="title" value="SLOSH - Hurricane Ike - egm3 - SLOSH Wind - No waves - 2D" />
+	<attribute name="institution" value="MDL - NOAA/NWS/MDL, inundation" />
+
+
+	<aggregation type="union">
+		<netcdf>
+			<aggregation dimName="time" type="joinExisting">
+				<scan location="Output" regExp=".*.nc$" />
+			</aggregation>
+		</netcdf>
+	</aggregation>
+
+</netcdf>

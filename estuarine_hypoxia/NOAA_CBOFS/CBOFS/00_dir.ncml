@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
+    <variable name="salt">
+        <attribute name="units" value="0.001"/>
+        <attribute name="missing_value" type="double" value="0.0"/>
+    </variable>
+    <variable name="temp">
+        <attribute name="missing_value" type="double" value="0.0"/>
+    </variable>
+    <variable name="zeta">
+        <attribute name="missing_value" type="double" value="0.0"/>
+    </variable>
+    <variable name="rho">
+        <attribute name="missing_value" type="double" value="0.0"/>
+    </variable>
+    <variable name="u">
+        <attribute name="missing_value" type="double" value="0.0"/>
+    </variable>
+    <variable name="v">
+        <attribute name="missing_value" type="double" value="0.0"/>
+    </variable>
+    <aggregation dimName="ocean_time" type="joinExisting">
+        <scan location="Output/Output_His/" regExp=".*his.*\.nc$" subdirs="false"/>        
+    </aggregation>
+</netcdf>

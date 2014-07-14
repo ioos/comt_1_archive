@@ -1,0 +1,90 @@
+<netcdf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2 http://www.unidata.ucar.edu/schemas/thredds/InvCatalog.1.0.3.xsd"
+ xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
+
+<attribute name="Conventions" value="UGRID-0.9.0"/>
+<variable name="h" >
+  <attribute name="mesh" value="fvcom_mesh"/>
+  <attribute name="coordinates" value="lat lon"/>
+  <attribute name="location" value="node"/>
+  <remove type="attribute" name="positive"/>
+  <remove type="attribute" name="grid"/>
+ </variable>
+ <variable name="nv" >
+  <attribute name="cf_role" value="face_node_connectivity"/>
+  <attribute name="start_index" type="int" value="1"/>
+ </variable>
+
+     <variable name="lon">
+      <remove type="attribute" name="valid_min" />
+      <remove type="attribute" name="valid_max" />
+     </variable>
+     <variable name="lat">
+      <remove type="attribute" name="valid_min" />
+      <remove type="attribute" name="valid_max" />
+     </variable>
+     <variable name="lonc">
+      <remove type="attribute" name="valid_min" />
+      <remove type="attribute" name="valid_max" />
+     </variable>
+     <variable name="latc">
+      <remove type="attribute" name="valid_min" />
+      <remove type="attribute" name="valid_max" />
+     </variable>
+
+ <variable name="fvcom_mesh" shape="" type="int">
+  <attribute name="cf_role" value="mesh_topology"/>
+  <attribute name="topology_dimension" type="int" value="2"/>
+  <attribute name="node_coordinates" value="lon lat"/>
+  <attribute name="face_coordinates" value="lonc latc"/>
+  <attribute name="face_node_connectivity" value="nv"/>
+ </variable>
+
+ <variable name="Dir" shape="time node" type="float">
+  <attribute name="long_name" value="Mean Wave Direction"/>
+  <attribute name="description" value="mean_wave_direction"/>
+  <attribute name="mesh" value="fvcom_mesh"/>
+  <attribute name="location" value="node"/>
+  <remove type="attribute" name="grid"/>
+  <attribute name="units" value="degree"/>
+  <attribute name="type" value="data"/>
+  <attribute name="missing_value" value="-999.99"/>
+ </variable>
+
+ <variable name="Hsig" shape="time node" type="float">
+  <attribute name="long_name" value="Significant Wave Height"/>
+  <attribute name="description" value="signiFicant_wave_height"/>
+  <attribute name="mesh" value="fvcom_mesh"/>
+  <attribute name="location" value="node"/>
+  <remove type="attribute" name="grid"/>
+  <attribute name="units" value="m"/>
+  <attribute name="type" value="data"/>
+  <attribute name="missing_value" value="-999.99"/>
+ </variable>
+
+ <variable name="TMM10" shape="time node" type="float">
+  <attribute name="long_name" value="Mean Wave Period"/>
+  <attribute name="description" value="mean_wave_period"/>
+  <attribute name="mesh" value="fvcom_mesh"/>
+  <attribute name="location" value="node"/>
+  <remove type="attribute" name="grid"/>
+  <attribute name="units" value="second"/>
+  <attribute name="type" value="data"/>
+  <attribute name="missing_value" value="-999.99"/>
+ </variable>
+
+ <variable name="TPS" shape="time node" type="float">
+  <attribute name="long_name" value="Smoothed Peak Wave Period"/>
+  <attribute name="description" value="smoothed_peak_wave_period"/>
+  <attribute name="mesh" value="fvcom_mesh"/>
+  <attribute name="location" value="node"/>
+  <remove type="attribute" name="grid"/>
+  <attribute name="units" value="second"/>
+  <attribute name="type" value="data"/>
+  <attribute name="missing_value" value="-999.99"/>
+ </variable>
+ <aggregation type="union">
+   <netcdf location="Output/USF_Rita_wSurge2D_COMPGRID_Dir_Hsig_TMM10_TPS.nc"/>
+   <netcdf location="Output/usf_fvcom_grid.nc" />
+ </aggregation>
+</netcdf>

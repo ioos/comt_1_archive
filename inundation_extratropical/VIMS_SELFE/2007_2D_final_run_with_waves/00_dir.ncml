@@ -1,0 +1,149 @@
+<netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
+     <attribute name="institution" type="string" value="Virginia Institute of Marine Science -- http://web.vims.edu/physical/"/>
+     <attribute name="history" type="string" value="ncml aggregation of .../whole_domain/ datafiles"/>
+     <attribute name="comment" type="string" value="David Forrest drf@vims.edu 2012-04-02"/>
+ <variable name="selfe_mesh" shape="" type="int">
+  <attribute name="cf_role" value="mesh_topology"/>
+  <attribute name="topology_dimension" type="int" value="2"/>
+  <attribute name="node_coordinates" value="lon lat"/>
+  <attribute name="face_node_connectivity" value="ele"/>
+ </variable>
+ <variable name="time">
+  <attribute name="units" value="seconds since 2007-04-01 00:00:00"/>
+  <attribute name="standard_name" value="time"/>
+ </variable>
+ <variable name="ele" shape="nface nele" type="int">
+  <attribute name="cf_role" value="face_node_connectivity"/>
+  <attribute name="start_index" type="short" value="1"/>
+ </variable>
+ <variable name="depth" shape="node" type="float">
+  <attribute name="mesh" value="selfe_mesh"/>
+  <attribute name="location" value="node"/>
+  <attribute name="coordinates" value="lon lat"/>
+  <attribute name="units" value="m"/>
+  <attribute name="standard_name" value="depth_below_geoid"/>
+  <remove type="attribute" name="positive"/>
+ </variable>
+ <variable name="sigma" shape="sigma" type="float">
+  <attribute name="long_name" value="S coordinates at whole levels"/>
+  <attribute name="units" value="non-dimensional"/>
+  <attribute name="positive" value="up"/>
+ </variable>
+ <variable name="Cs" shape="sigma" type="float">
+  <attribute name="long_name" value="Function C(s) at whole levels"/>
+  <attribute name="units" value="non-dimensional"/>
+  <attribute name="positive" value="up"/>
+ </variable>
+ <variable name="elev" shape="time node" type="float">
+  <attribute name="long_name" value="free_surface_elevation"/>
+  <attribute name="standard_name" value="sea_surface_height_above_geoid"/>
+  <attribute name="missing_value" type="float" value="-999.00"/>
+  <attribute name="mesh" value="selfe_mesh"/>
+  <attribute name="location" value="node"/>
+  <attribute name="coordinates" value="lon lat"/>
+  <attribute name="units" value="m"/>
+ </variable>
+ <variable name="dahv_u" shape="time nele" type="float">
+  <attribute name="standard_name" value="barotropic_eastward_sea_water_velocity"/>
+  <attribute name="mesh" value="selfe_mesh"/>
+  <attribute name="location" value="face"/>
+  <attribute name="units" value="m/s"/>
+ </variable>
+ <variable name="dahv_v" shape="time nele" type="float">
+  <attribute name="standard_name" value="barotropic_northward_sea_water_velocity"/>
+  <attribute name="mesh" value="selfe_mesh"/>
+  <attribute name="location" value="face"/>
+  <attribute name="units" value="m/s"/>
+ </variable>
+
+     <variable name="wwm_1" shape="time node" type="float">
+      <attribute name="long_name" value="significant_wave_height"/>
+      <attribute name="standard_name" value="sea_surface_wave_significant_height"/>
+      <attribute name="missing_value" type="float" value="-999.00"/>
+      <attribute name="mesh" value="selfe_mesh"/>
+      <attribute name="location" value="node"/>
+      <attribute name="coordinates" value="lon lat"/>
+      <attribute name="units" value="m"/>
+     </variable>
+     <variable name="wwm_3" shape="time node" type="float">
+      <attribute name="long_name" value="mean_period"/>
+      <attribute name="standard_name" value="sea_surface_wave_period_at_variance_spectral_density_mean"/>
+      <attribute name="missing_value" type="float" value="-999.00"/>
+      <attribute name="mesh" value="selfe_mesh"/>
+      <attribute name="location" value="node"/>
+      <attribute name="coordinates" value="lon lat"/>
+      <attribute name="units" value="s"/>
+     </variable>
+     <variable name="wwm_9" shape="time node" type="float">
+      <attribute name="long_name" value="peak_period"/>
+      <attribute name="standard_name" value="sea_surface_wave_period_at_variance_spectral_density_maximum"/>
+      <attribute name="missing_value" type="float" value="-999.00"/>
+      <attribute name="mesh" value="selfe_mesh"/>
+      <attribute name="location" value="node"/>
+      <attribute name="coordinates" value="lon lat"/>
+      <attribute name="units" value="s"/>
+     </variable>
+     <variable name="wwm_15" shape="time node" type="float">
+      <attribute name="long_name" value="peak_direction"/>
+      <attribute name="standard_name" value="sea_surface_wave_from_direction_at_variance_spectral_density_maximum"/>
+      <attribute name="missing_value" type="float" value="-999.00"/>
+      <attribute name="mesh" value="selfe_mesh"/>
+      <attribute name="location" value="node"/>
+      <attribute name="coordinates" value="lon lat"/>
+      <attribute name="units" value="degrees_east"/>
+     </variable>
+
+ <aggregation type="union">
+
+  <netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2" location="Output/AdcircCoords.nc" >
+   <variable name="lon" orgName="x"/>
+   <variable name="lat" orgName="y"/>
+  </netcdf>
+
+  <netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
+    <aggregation dimName="time" type="joinExisting">
+    <scan
+     location="Output"
+     regExp=".*[0-9]{2}_elev\.nc$"/>
+   </aggregation>
+  </netcdf>
+ 
+  <netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
+   <aggregation dimName="time" type="joinExisting">
+    <scan
+     location="Output"
+     regExp=".*[0-9]{2}_dahv\.nc$"/>
+   </aggregation>
+  </netcdf>
+
+      <netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
+       <aggregation dimName="time" type="joinExisting">
+        <scan
+         location="Output"
+         regExp=".*[0-9]{1}_wwm_15\.nc$"/>
+       </aggregation>
+      </netcdf>
+
+      <netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
+       <aggregation dimName="time" type="joinExisting">
+        <scan
+         location="Output"
+         regExp=".*[0-9]{1}_wwm_1\.nc$"/>
+       </aggregation>
+      </netcdf>
+      <netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
+       <aggregation dimName="time" type="joinExisting">
+        <scan
+         location="Output"
+         regExp=".*[0-9]{1}_wwm_3\.nc$"/>
+       </aggregation>
+      </netcdf>
+      <netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
+       <aggregation dimName="time" type="joinExisting">
+        <scan
+         location="Output"
+         regExp=".*[0-9]{1}_wwm_9\.nc$"/>
+       </aggregation>
+      </netcdf>
+ </aggregation>
+</netcdf>
