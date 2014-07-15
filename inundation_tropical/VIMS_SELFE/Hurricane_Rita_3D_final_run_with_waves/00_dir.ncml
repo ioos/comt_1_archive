@@ -143,7 +143,10 @@ Which should be viewable as http://testbedapps.sura.org/thredds/catalog/inundati
       </netcdf>
       <netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
        <dimension name="time2" orgName="time"/>
-       <variable name="time2" orgName="time"/>
+       <variable name="time2" orgName="time">
+        <attribute name="units" value="seconds since 2005-09-18 00:00:00"/>
+        <attribute name="standard_name" value="time"/>
+       </variable>
        <aggregation dimName="time" type="joinExisting">
         <scan
          location="Output/"
