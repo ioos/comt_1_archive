@@ -22,6 +22,7 @@ more .gitignore
 !*.doc
 !*.docx
 !*.csv
+!README.txt
 ```
 * add, commit and push to github:
 ```
