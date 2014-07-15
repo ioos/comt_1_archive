@@ -30,3 +30,12 @@ git commit -m 'added ncml,doc and csv files from dirs'
 git remote add origin git@github.com:ioos/comt_1_archive.git
 git push --set-upstream origin master
 ```
+I also did this to allow easy rollback of last commit:
+```
+git config --global alias.undo-commit 'reset --soft HEAD^' 
+```
+Then just type 
+```
+git undo-commit
+```
+as needed. 
