@@ -66,6 +66,15 @@
       <attribute name="coordinates" value="time y x"/>
       <attribute name="units" value="s"/>
      </variable>
+     <variable name="wwm_15" shape="time node" type="float">
+      <attribute name="long_name" value="peak_direction"/>
+      <attribute name="standard_name" value="sea_surface_wave_from_direction_at_variance_spectral_density_maximum"/>
+      <attribute name="missing_value" type="float" value="-999.00"/>
+      <attribute name="mesh" value="selfe_mesh"/>
+      <attribute name="location" value="node"/>
+      <attribute name="coordinates" value="time y x"/>
+      <attribute name="units" value="degrees"/>
+     </variable>
      <aggregation type="union">
       <netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
        <aggregation dimName="time" type="joinExisting">
@@ -86,6 +95,13 @@
         <scan
          location="Output/"
          regExp=".*[0-9]{1}_PeakPeriod\.nc$"/>
+       </aggregation>
+      </netcdf>
+      <netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
+       <aggregation dimName="time" type="joinExisting">
+        <scan
+         location="Output/"
+         regExp=".*[0-9]{1}_pwd\.nc$"/>
        </aggregation>
       </netcdf>
      </aggregation>
