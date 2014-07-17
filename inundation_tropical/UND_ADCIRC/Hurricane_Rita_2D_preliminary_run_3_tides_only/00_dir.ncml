@@ -3,7 +3,9 @@
  xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
  <attribute name="Conventions" value="CF-1.6, UGRID-0.9"/>
  <remove type="attribute" name="_FillValue"/>
-
+ <variable name="depth">
+  <attribute name="coordinates" value="y x"/>
+ </variable>
      <variable name="adcirc_mesh">
       <remove type="attribute" name="standard_name" />
       <attribute name="cf_role" value="mesh_topology" />
