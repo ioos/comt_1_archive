@@ -6,22 +6,27 @@
  <variable name="depth">
   <attribute name="coordinates" value="y x"/>
  </variable>
-     <variable name="adcirc_mesh">
-      <remove type="attribute" name="standard_name" />
-      <attribute name="cf_role" value="mesh_topology" />
-      <remove type="attribute" name="dimension" />
-      <attribute name="topology_dimension" type="int" value="2" />
-     </variable>
-
-     <variable name="element">
-      <remove type="attribute" name="standard_name" />
-      <attribute name="cf_role" value="face_node_connectivity" />
-     </variable>
-     <variable name="time">
-      <attribute name="units" value="seconds since 2008-07-31 12:00:00" />
-      <attribute name="testunits" value="seconds since 2008-07-31 12:00:00" />
-     </variable>
+ <variable name="adcirc_mesh">
+  <remove type="attribute" name="standard_name"/>
+  <attribute name="cf_role" value="mesh_topology"/>
+  <remove type="attribute" name="dimension"/>
+  <attribute name="topology_dimension" type="int" value="2"/>
+ </variable>
+ <variable name="zeta2">
+  <attribute name="coordinates" value="time y x"/>
+  <attribute name="mesh" value="adcirc_mesh"/>
+  <attribute name="location" value="node"/>
+  <attribute name="units" value="m"/>
+ </variable>
+ <variable name="element">
+  <remove type="attribute" name="standard_name"/>
+  <attribute name="cf_role" value="face_node_connectivity"/>
+ </variable>
+ <variable name="time">
+  <attribute name="units" value="seconds since 2008-07-31 12:00:00"/>
+  <attribute name="testunits" value="seconds since 2008-07-31 12:00:00"/>
+ </variable>
  <aggregation type="union">
-   <netcdf location="Output/fort.68.nc" /> 
+  <netcdf location="Output/fort.68.nc"/>
  </aggregation>
 </netcdf>
