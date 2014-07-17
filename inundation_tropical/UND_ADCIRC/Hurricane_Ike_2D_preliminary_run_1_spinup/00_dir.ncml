@@ -30,10 +30,10 @@
  <variable name="u-vel">
   <remove type="attribute" name="positive"/>
  </variable>
- <variable name="element">
-  <remove type="attribute" name="standard_name"/>
+ <variable name="element">  
   <attribute name="cf_role" value="face_node_connectivity"/>
   <attribute name="start_index" type="int" value="1"/>
+  <remove type="attribute" name="standard_name"/>
  </variable>
  <variable name="time">
   <attribute name="units" value="seconds since 2008-07-31 12:00:00"/>
