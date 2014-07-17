@@ -22,14 +22,7 @@
       <remove type="attribute" name="valid_min" />
       <remove type="attribute" name="valid_max" />
      </variable>
-     <variable name="lonc">
-      <remove type="attribute" name="valid_min" />
-      <remove type="attribute" name="valid_max" />
-     </variable>
-     <variable name="latc">
-      <remove type="attribute" name="valid_min" />
-      <remove type="attribute" name="valid_max" />
-     </variable>
+
 
  <variable name="fvcom_mesh" shape="" type="int">
   <attribute name="cf_role" value="mesh_topology"/>
