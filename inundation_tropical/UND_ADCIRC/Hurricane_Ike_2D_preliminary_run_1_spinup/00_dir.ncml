@@ -7,20 +7,33 @@
   <attribute name="coordinates" value="y x"/>
  </variable>
  <variable name="adcirc_mesh">
-  <remove type="attribute" name="standard_name"/>
   <attribute name="cf_role" value="mesh_topology"/>
-  <remove type="attribute" name="dimension"/>
+  <attribute name="face_node_connectivity" value="element"/>
   <attribute name="topology_dimension" type="int" value="2"/>
+  <attribute name="node_coordinates" value="x y"/>
+  <remove type="attribute" name="dimension"/>
+  <remove type="attribute" name="standard_name"/>
  </variable>
  <variable name="zeta2">
   <attribute name="coordinates" value="time y x"/>
   <attribute name="mesh" value="adcirc_mesh"/>
   <attribute name="location" value="node"/>
   <attribute name="units" value="m"/>
+  <remove type="attribute" name="positive"/>
+ </variable>
+ <variable name="x">
+  <remove type="attribute" name="positive"/>
+ </variable>
+ <variable name="y">
+  <remove type="attribute" name="positive"/>
+ </variable>
+ <variable name="u-vel">
+  <remove type="attribute" name="positive"/>
  </variable>
  <variable name="element">
   <remove type="attribute" name="standard_name"/>
   <attribute name="cf_role" value="face_node_connectivity"/>
+  <attribute name="start_index" type="int" value="1"/>
  </variable>
  <variable name="time">
   <attribute name="units" value="seconds since 2008-07-31 12:00:00"/>

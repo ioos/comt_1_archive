@@ -9,6 +9,7 @@
  <variable name="adcirc_mesh">
   <attribute name="cf_role" value="mesh_topology"/>
   <attribute name="topology_dimension" type="int" value="2"/>
+  <attribute name="face_node_connectivity" value="element"/>
   <remove type="attribute" name="standard_name"/>
   <remove type="attribute" name="dimension"/>
  </variable>
