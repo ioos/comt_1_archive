@@ -19,6 +19,7 @@
   <attribute name="mesh" value="adcirc_mesh"/>
   <attribute name="location" value="node"/>
   <attribute name="units" value="m"/>
+  <attribute name="standard_name" value="water_surface_height_above_reference_datum"/>
   <remove type="attribute" name="positive"/>
  </variable>
  <variable name="x">
