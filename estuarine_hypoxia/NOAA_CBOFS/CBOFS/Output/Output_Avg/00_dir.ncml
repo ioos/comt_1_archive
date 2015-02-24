@@ -19,6 +19,11 @@
     <variable name="v">
         <attribute name="missing_value" type="double" value="0.0"/>
     </variable>
+
+    <variable name="ocean_time">
+       <attribute name="standard_name" value="time"/>
+    </variable>
+
     <aggregation dimName="ocean_time" type="joinExisting">
         <scan location="." regExp=".*avg.*\.nc$" subdirs="false"/>        
     </aggregation>

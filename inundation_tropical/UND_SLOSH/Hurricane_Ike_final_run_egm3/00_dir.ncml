@@ -3,6 +3,14 @@
  xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
  <attribute name="Conventions" value="CF-1.0"/>
  <attribute name="Source" value="SLOSH" />
+
+ <variable name="wxx">
+  <attribute name="standard_name" value="eastward_wind"/>
+ </variable>
+ <variable name="wyy">
+  <attribute name="standard_name" value="northward_wind"/>
+ </variable>
+
  <aggregation type="union">
       <netcdf>
        <aggregation dimName="time" type="joinExisting">

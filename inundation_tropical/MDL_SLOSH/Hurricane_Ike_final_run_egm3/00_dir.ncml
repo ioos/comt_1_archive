@@ -10,6 +10,10 @@
 	<attribute name="title" value="SLOSH - Hurricane Ike - egm3 - SLOSH Wind - No waves - 2D" />
 	<attribute name="institution" value="MDL - NOAA/NWS/MDL, inundation" />
 
+        <variable name="eta">
+            <attribute name="standard_name" value="sea_surface_height_above_geoid"/>
+            <remove type="attribute" name="cell_methods"/>
+        </variable>
 
 	<aggregation type="union">
 		<netcdf>

@@ -1,18 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2" location="Output/efdc_removed_unlimited.nc">
-  <dimension name="ny" length="240" />
-  <dimension name="nx" length="111" />
-  <dimension name="time" length="8651" />
-  <dimension name="sigma" length="20" />
+<netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2" location="Output/new.nc">
   <attribute name="Conventions" value="CF-1.4" />
-  <attribute name="model" value="EDFC" />
-  <attribute name="title" value="EFDC 2004 " />
-  <attribute name="comment" value="EFDC 2004 Estuarine Hypoxia Simulation for Chesapeake Bay by Jian Shen, VIMS" />
-  <attribute name="summary" value="EFDC 2004 Estuarine Hypoxia Simulation for Chesapeake Bay by Jian Shen, VIMS" />
-  <attribute name="source" value="CSDL/MMAP" />
-  <attribute name="institution" value="SGI O300" />
-  <attribute name="history" value="Operation-COOPS ;&#xA;FMRC Best Dataset" />
-  <attribute name="references" value="shen@vims.edu" />
   <attribute name="cdm_data_type" value="grid" />
   <attribute name="featureType" value="grid" />
+  <variable name="do">
+     <attribute name="units" value="mg/l"/>
+     <attribute name="standard_name" value="mass_concentration_of_oxygen_in_sea_water"/>
+  </variable>
 </netcdf>

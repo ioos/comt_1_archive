@@ -16,9 +16,11 @@
       <attribute name="start_index" type="short" value="1"/>
      </variable>
      <variable name="x" shape="node" type="float">
+      <attribute name="standard_name" value="longitude"/>
       <attribute name="units" value="degrees_east"/>
      </variable>
      <variable name="y" shape="node" type="float">
+      <attribute name="standard_name" value="latitude"/>
       <attribute name="units" value="degrees_north"/>
      </variable>
      <variable name="depth" shape="node" type="float">

@@ -8,6 +8,19 @@
         <attribute name="standard_name" value="sea_surface_height_above_geoid"/>
     </variable>
 
+    <variable name="sustr">
+        <attribute name="missing_value" type="float" value="0.0"/>
+    </variable>
+    <variable name="svstr">
+        <attribute name="missing_value" type="float" value="0.0"/>
+    </variable>
+    <variable name="bustr">
+        <attribute name="missing_value" type="float" value="0.0"/>
+    </variable>
+    <variable name="bvstr">
+        <attribute name="missing_value" type="float" value="0.0"/>
+    </variable>
+
     <variable name="salt">
         <attribute name="missing_value" type="float" value="0.0"/>
         <attribute name="standard_name" value="sea_water_salinity"/>
@@ -19,8 +32,8 @@
     </variable>
 
     <variable name="dye_01">
-        <attribute name="units" value="mg/l"/>
         <attribute name="missing_value" type="float" value="0.0"/>
+        <attribute name="units" value="mg/l"/>
         <attribute name="scale_factor" type="float" value="0.032"/>
         <attribute name="standard_name" value="mass_concentration_of_oxygen_in_sea_water"/>
     </variable>
@@ -42,9 +55,8 @@
     <variable name="ocean_time">
        <attribute name="standard_name" value="time"/>
     </variable>
-
     
     <aggregation dimName="ocean_time" type="joinExisting" timeUnitsChange="true">
-        <scan location="Output/history_files/" regExp=".*ocean_his_synoptic_seg[0-9]{2}\.nc$" subdirs="true"/>
+        <scan location="Output/history_output/" regExp=".*chesroms_1termO2_his_[0-9]{4}_[0-9]{4}\.nc$" subdirs="true"/>
     </aggregation>
 </netcdf>
